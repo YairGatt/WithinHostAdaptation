@@ -1,0 +1,358 @@
+<!DOCTYPE html
+PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html>
+<head>
+<title>BRESEQ :: Marginal Predictions</title>
+<style type = "text/css">
+body {font-family: sans-serif; font-size: 11pt;}
+th {background-color: rgb(0,0,0); color: rgb(255,255,255);}
+table {background-color: rgb(1,0,0); color: rgb(0,0,0);}
+tr {background-color: rgb(255,255,255);}
+.mutation_in_codon {color:red; text-decoration : underline;}
+.snp_type_synonymous{color:green;}
+.snp_type_nonsynonymous{color:blue;}
+.snp_type_nonsense{color:red;}
+.mutation_header_row {background-color: rgb(0,130,0);}
+.read_alignment_header_row {background-color: rgb(255,0,0);}
+.missing_coverage_header_row {background-color: rgb(0,100,100);}
+.new_junction_header_row {background-color: rgb(0,0,155);}
+.copy_number_header_row {background-color: rgb(153,102,0);}
+.alternate_table_row_0 {background-color: rgb(255,255,255);}
+.alternate_table_row_1 {background-color: rgb(235,235,235);}
+.gray_table_row {background-color: rgb(230,230,245);}
+.polymorphism_table_row {background-color: rgb(160,255,160);}
+.highlight_table_row {background-color: rgb(192,255,255);}
+.reject_table_row {background-color: rgb(255,200,165);}
+.user_defined_table_row {background-color: rgb(255,255,0);}
+.information_table_row {background-color: rgb(200,255,255);}
+.junction_repeat {background-color: rgb(255,165,0)}
+.junction_gene {}
+.hidden { display: none; }
+.unhidden { display: block; }
+
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+</head>
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="3">
+<tr>
+<td><a href="http://barricklab.org/breseq"><img src="evidence/breseq_small.png" /></a></td>
+<td width="100%">
+<b><i>breseq</i></b>&nbsp;&nbsp;version 0.32.1&nbsp;&nbsp;revision aa8f2595a244
+<br><a href="index.html">mutation predictions</a> | 
+<a href="marginal.html">marginal predictions</a> | 
+<a href="summary.html">summary statistics</a> | 
+<a href="output.gd">genome diff</a> | 
+<a href="log.txt">command line log</a>
+</td></tr></table>
+
+<p>
+<p>
+<table border="0" cellspacing="1", cellpadding="3">
+<tr><th colspan="11" align="left" class="read_alignment_header_row">Marginal read alignment evidence (highest frequency 20 of 1324 shown, sorted by frequency from high to low)</th></tr>
+<tr>
+<th>seq&nbsp;id</th>
+<th colspan="2">position</th>
+<th>ref</th>
+<th>new</th>
+<th>freq</th>
+<th>score&nbsp;(cons/poly)</th>
+<th>reads</th>
+<th>annotation</th>
+<th>genes</th>
+<th width="100%">product</th>
+</tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">407,797</td><td align="right">0</td><td align="center">A</td><td align="center">G</td><td align="right">79.8%
+</td><td align="center">181.1
+/&nbsp;37.0
+</td><td align="center">124</td><td align="center"><font class="snp_type_synonymous">L151L</font>&nbsp;(TT<font class="mutation_in_codon">A</font>&rarr;TT<font class="mutation_in_codon">G</font>)&nbsp;</td><td align="center"><i>SAOUHSC_00405</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">1,460,016</td><td align="right">0</td><td align="center">T</td><td align="center">A</td><td align="right">79.7%
+</td><td align="center">42.7
+/&nbsp;15.2
+</td><td align="center">59</td><td align="center"><font class="snp_type_synonymous">V42V</font>&nbsp;(GT<font class="mutation_in_codon">A</font>&rarr;GT<font class="mutation_in_codon">T</font>)&nbsp;</td><td align="center"><i>SAOUHSC_01508</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">2,560,732</td><td align="right">0</td><td align="center">A</td><td align="center">C</td><td align="right">79.6%
+</td><td align="center">174.0
+/&nbsp;26.4
+</td><td align="center">93</td><td align="center"><font class="snp_type_nonsynonymous">I2M</font>&nbsp;(AT<font class="mutation_in_codon">T</font>&rarr;AT<font class="mutation_in_codon">G</font>)&nbsp;</td><td align="center"><i>SAOUHSC_02788</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">2,556,856</td><td align="right">0</td><td align="center">T</td><td align="center">C</td><td align="right">79.5%
+</td><td align="center">195.2
+/&nbsp;38.9
+</td><td align="center">190</td><td align="center"><font class="snp_type_synonymous">P208P</font>&nbsp;(CC<font class="mutation_in_codon">A</font>&rarr;CC<font class="mutation_in_codon">G</font>)&nbsp;</td><td align="center"><i>SAOUHSC_02783</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">721,072</td><td align="right">0</td><td align="center">G</td><td align="center">A</td><td align="right">79.5%
+</td><td align="center">133.0
+/&nbsp;27.2
+</td><td align="center">112</td><td align="center"><font class="snp_type_nonsynonymous">R8K</font>&nbsp;(A<font class="mutation_in_codon">G</font>A&rarr;A<font class="mutation_in_codon">A</font>A)&nbsp;</td><td align="center"><i>SAOUHSC_00735</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">2,556,853</td><td align="right">0</td><td align="center">G</td><td align="center">A</td><td align="right">79.4%
+</td><td align="center">174.5
+/&nbsp;50.9
+</td><td align="center">190</td><td align="center"><font class="snp_type_synonymous">T209T</font>&nbsp;(AC<font class="mutation_in_codon">C</font>&rarr;AC<font class="mutation_in_codon">T</font>)&nbsp;</td><td align="center"><i>SAOUHSC_02783</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">293,393</td><td align="right">0</td><td align="center">C</td><td align="center">T</td><td align="right">79.3%
+</td><td align="center">228.8
+/&nbsp;64.8
+</td><td align="center">199</td><td align="center"><font class="snp_type_synonymous">D107D</font>&nbsp;(GA<font class="mutation_in_codon">C</font>&rarr;GA<font class="mutation_in_codon">T</font>)&nbsp;</td><td align="center"><i>SAOUHSC_00276</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">405,650</td><td align="right">0</td><td align="center">G</td><td align="center">A</td><td align="right">79.2%
+</td><td align="center">104.6
+/&nbsp;26.3
+</td><td align="center">106</td><td align="center"><font class="snp_type_synonymous">K62K</font>&nbsp;(AA<font class="mutation_in_codon">G</font>&rarr;AA<font class="mutation_in_codon">A</font>)&nbsp;</td><td align="center"><i>SAOUHSC_00402</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">2,789,255</td><td align="right">0</td><td align="center">A</td><td align="center">T</td><td align="right">78.8%
+</td><td align="center">261.9
+/&nbsp;56.7
+</td><td align="center">176</td><td align="center">intergenic&nbsp;(&#8209;158/+147)</td><td align="center"><i>hisZ/SAOUHSC_03016</i></td><td align="left">ATP phosphoribosyltransferase regulatory subunit/hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">292,134</td><td align="right">0</td><td align="center">A</td><td align="center">G</td><td align="right">78.7%
+</td><td align="center">135.3
+/&nbsp;31.3
+</td><td align="center">150</td><td align="center"><font class="snp_type_synonymous">Q28Q</font>&nbsp;(CA<font class="mutation_in_codon">A</font>&rarr;CA<font class="mutation_in_codon">G</font>)&nbsp;</td><td align="center"><i>SAOUHSC_00274</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">294,027</td><td align="right">0</td><td align="center">G</td><td align="center">T</td><td align="right">78.3%
+</td><td align="center">145.9
+/&nbsp;45.5
+</td><td align="center">115</td><td align="center"><font class="snp_type_nonsynonymous">M148I</font>&nbsp;(AT<font class="mutation_in_codon">G</font>&rarr;AT<font class="mutation_in_codon">T</font>)&nbsp;</td><td align="center"><i>SAOUHSC_00277</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">294,028</td><td align="right">0</td><td align="center">G</td><td align="center">A</td><td align="right">78.3%
+</td><td align="center">125.5
+/&nbsp;31.0
+</td><td align="center">115</td><td align="center"><font class="snp_type_nonsynonymous">E149K</font>&nbsp;(<font class="mutation_in_codon">G</font>AA&rarr;<font class="mutation_in_codon">A</font>AA)&nbsp;</td><td align="center"><i>SAOUHSC_00277</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">2,582,388</td><td align="right">0</td><td align="center">C</td><td align="center">T</td><td align="right">78.2%
+</td><td align="center">66.7
+/&nbsp;22.6
+</td><td align="center">87</td><td align="center"><font class="snp_type_synonymous">V656V</font>&nbsp;(GT<font class="mutation_in_codon">G</font>&rarr;GT<font class="mutation_in_codon">A</font>)&nbsp;</td><td align="center"><i>SAOUHSC_02803</i></td><td align="left">fibronectin&#8209;binding protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">140,720</td><td align="right">0</td><td align="center">T</td><td align="center">.</td><td align="right">77.7%
+</td><td align="center">345.7
+/&nbsp;129.1
+</td><td align="center">166</td><td align="center">intergenic&nbsp;(&#8209;95/&#8209;84)</td><td align="center"><i>SAOUHSC_00134/SAOUHSC_00135</i></td><td align="left">hypothetical protein/hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">1,460,793</td><td align="right">0</td><td align="center">T</td><td align="center">G</td><td align="right">77.6%
+</td><td align="center">54.2
+/&nbsp;16.4
+</td><td align="center">58</td><td align="center"><font class="snp_type_nonsynonymous">L151F</font>&nbsp;(TT<font class="mutation_in_codon">A</font>&rarr;TT<font class="mutation_in_codon">C</font>)&nbsp;</td><td align="center"><i>SAOUHSC_01511</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">398,426</td><td align="right">0</td><td align="center">T</td><td align="center">A</td><td align="right">77.5%
+</td><td align="center">272.4
+/&nbsp;71.3
+</td><td align="center">196</td><td align="center"><font class="snp_type_nonsynonymous">F3L</font>&nbsp;(TT<font class="mutation_in_codon">T</font>&rarr;TT<font class="mutation_in_codon">A</font>)&nbsp;</td><td align="center"><i>SAOUHSC_00395</i></td><td align="left">superantigen&#8209;like protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">398,445</td><td align="right">0</td><td align="center">A</td><td align="center">G</td><td align="right">77.5%
+</td><td align="center">256.6
+/&nbsp;44.2
+</td><td align="center">192</td><td align="center"><font class="snp_type_nonsynonymous">T10A</font>&nbsp;(<font class="mutation_in_codon">A</font>CA&rarr;<font class="mutation_in_codon">G</font>CA)&nbsp;</td><td align="center"><i>SAOUHSC_00395</i></td><td align="left">superantigen&#8209;like protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">292,438</td><td align="right">0</td><td align="center">C</td><td align="center">G</td><td align="right">77.1%
+</td><td align="center">351.6
+/&nbsp;217.3
+</td><td align="center">448</td><td align="center"><font class="snp_type_nonsynonymous">Q130E</font>&nbsp;(<font class="mutation_in_codon">C</font>AA&rarr;<font class="mutation_in_codon">G</font>AA)&nbsp;</td><td align="center"><i>SAOUHSC_00274</i></td><td align="left">hypothetical protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">398,444</td><td align="right">0</td><td align="center">G</td><td align="center">T</td><td align="right">77.1%
+</td><td align="center">275.6
+/&nbsp;71.9
+</td><td align="center">192</td><td align="center"><font class="snp_type_synonymous">A9A</font>&nbsp;(GC<font class="mutation_in_codon">G</font>&rarr;GC<font class="mutation_in_codon">T</font>)&nbsp;</td><td align="center"><i>SAOUHSC_00395</i></td><td align="left">superantigen&#8209;like protein</td></tr>
+<tr class="polymorphism_table_row"><td align="center">NC_007795</td><td align="right">398,438</td><td align="right">0</td><td align="center">A</td><td align="center">T</td><td align="right">77.0%
+</td><td align="center">266.4
+/&nbsp;71.0
+</td><td align="center">191</td><td align="center"><font class="snp_type_synonymous">A7A</font>&nbsp;(GC<font class="mutation_in_codon">A</font>&rarr;GC<font class="mutation_in_codon">T</font>)&nbsp;</td><td align="center"><i>SAOUHSC_00395</i></td><td align="left">superantigen&#8209;like protein</td></tr>
+</table>
+
+<p>
+<table border="0" cellspacing="1" cellpadding="3">
+<tr><th colspan="10" align="left" class="new_junction_header_row">Marginal new junction evidence (lowest skew 10 of 236 shown)</th></tr>
+<!-- Header Lines for New Junction -->
+<tr>
+<th>seq&nbsp;id</th>
+<th>position</th>
+<th>reads&nbsp;(cov)</th>
+<th>reads&nbsp;(cov)</th>
+<th>score</th>
+<th>skew</th>
+<th>freq</th>
+<th>annotation</th>
+<th>gene</th>
+<th width="100%">product</th>
+</tr>
+
+<!-- Item Lines for New Junction -->
+<!-- Side 1 Item Lines for New Junction -->
+<tr class="mutation_table_row_0">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">=&nbsp;2264951</td><td align="center" class="junction_gene">0 (0.000)</td><td rowspan="2" align="center">111 (0.760)</td>
+<td rowspan="2" align="center">55/190</td>
+<td rowspan="2" align="center">3.0</td>
+<td rowspan="2" align="center">100%</td>
+<td align="center" class="junction_gene">intergenic&nbsp;(+970/+1146)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_02436/SAOUHSC_02441</i></td>
+<td class="junction_gene">hypothetical protein/alkaline shock protein 23</td>
+</tr>
+<!-- Side 2 Item Lines for New Junction -->
+<tr class="mutation_table_row_0">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">2425973&nbsp;=</td>
+<td align="center" class="junction_gene">0 (0.000)</td><td align="center" class="junction_gene">intergenic&nbsp;(+913/+158)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_02638/SAOUHSC_02640</i></td>
+<td class="junction_gene">hypothetical protein/hypothetical protein</td>
+</tr>
+<!-- Side 1 Item Lines for New Junction -->
+<tr class="mutation_table_row_1">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">=&nbsp;942086</td><td align="center" class="junction_gene">0 (0.000)</td><td rowspan="2" align="center">132 (0.940)</td>
+<td rowspan="2" align="center">52/182</td>
+<td rowspan="2" align="center">3.1</td>
+<td rowspan="2" align="center">100%</td>
+<td align="center" class="junction_gene">intergenic&nbsp;(+100/&#8209;171)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_00965/SAOUHSC_00966</i></td>
+<td class="junction_gene">hypothetical protein/hypothetical protein</td>
+</tr>
+<!-- Side 2 Item Lines for New Junction -->
+<tr class="mutation_table_row_1">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">942148&nbsp;=</td>
+<td align="center" class="junction_gene">0 (0.000)</td><td align="center" class="junction_gene">intergenic&nbsp;(+162/&#8209;109)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_00965/SAOUHSC_00966</i></td>
+<td class="junction_gene">hypothetical protein/hypothetical protein</td>
+</tr>
+<!-- Side 1 Item Lines for New Junction -->
+<tr class="mutation_table_row_0">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">1815375&nbsp;=</td><td align="center" class="junction_gene">0 (0.000)</td><td rowspan="2" align="center">105 (0.720)</td>
+<td rowspan="2" align="center">54/190</td>
+<td rowspan="2" align="center">3.2</td>
+<td rowspan="2" align="center">100%</td>
+<td align="center" class="junction_gene">intergenic&nbsp;(+1967/+117)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_01904/SAOUHSC_01907</i></td>
+<td class="junction_gene">hypothetical protein/hypothetical protein</td>
+</tr>
+<!-- Side 2 Item Lines for New Junction -->
+<tr class="mutation_table_row_0">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">=&nbsp;2264947</td>
+<td align="center" class="junction_gene">0 (0.000)</td><td align="center" class="junction_gene">intergenic&nbsp;(+966/+1150)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_02436/SAOUHSC_02441</i></td>
+<td class="junction_gene">hypothetical protein/alkaline shock protein 23</td>
+</tr>
+<!-- Side 1 Item Lines for New Junction -->
+<tr class="mutation_table_row_1">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">=&nbsp;1705728</td><td align="center" class="junction_gene">6 (0.040)</td><td rowspan="2" align="center">105 (0.720)</td>
+<td rowspan="2" align="center">54/190</td>
+<td rowspan="2" align="center">3.2</td>
+<td rowspan="2" align="center">97.3%</td>
+<td align="center" class="junction_gene">intergenic&nbsp;(+87/+2238)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_01803/SAOUHSC_01806</i></td>
+<td class="junction_gene">hypothetical protein/pyruvate kinase</td>
+</tr>
+<!-- Side 2 Item Lines for New Junction -->
+<tr class="mutation_table_row_1">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">=&nbsp;2264947</td>
+<td align="center" class="junction_gene">0 (0.000)</td><td align="center" class="junction_gene">intergenic&nbsp;(+966/+1150)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_02436/SAOUHSC_02441</i></td>
+<td class="junction_gene">hypothetical protein/alkaline shock protein 23</td>
+</tr>
+<!-- Side 1 Item Lines for New Junction -->
+<tr class="mutation_table_row_0">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">1249690&nbsp;=</td><td align="center" class="junction_gene">0 (0.000)</td><td rowspan="2" align="center">94 (0.660)</td>
+<td rowspan="2" align="center">52/184</td>
+<td rowspan="2" align="center">3.2</td>
+<td rowspan="2" align="center">53.1%</td>
+<td align="center" class="junction_gene">intergenic&nbsp;(+20/&#8209;15)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_01297/SAOUHSC_01298</i></td>
+<td class="junction_gene">hypothetical protein/hypothetical protein</td>
+</tr>
+<!-- Side 2 Item Lines for New Junction -->
+<tr class="mutation_table_row_0">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">=&nbsp;1250396</td>
+<td align="center" class="junction_gene">166 (1.170)</td><td align="center" class="junction_gene">intergenic&nbsp;(+49/&#8209;680)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_01301/SAOUHSC_01304</i></td>
+<td class="junction_gene">hypothetical protein/hypothetical protein</td>
+</tr>
+<!-- Side 1 Item Lines for New Junction -->
+<tr class="mutation_table_row_1">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">289907&nbsp;=</td><td align="center" class="junction_gene">1 (0.010)</td><td rowspan="2" align="center">99 (0.650)</td>
+<td rowspan="2" align="center">54/198</td>
+<td rowspan="2" align="center">3.5</td>
+<td rowspan="2" align="center">46.5%</td>
+<td align="center" class="junction_gene">coding&nbsp;(483/492&nbsp;nt)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_00269</i></td>
+<td class="junction_gene">hypothetical protein</td>
+</tr>
+<!-- Side 2 Item Lines for New Junction -->
+<tr class="mutation_table_row_1">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">=&nbsp;294068</td>
+<td align="center" class="junction_gene">227 (1.490)</td><td align="center" class="junction_gene">coding&nbsp;(485/501&nbsp;nt)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_00277</i></td>
+<td class="junction_gene">hypothetical protein</td>
+</tr>
+<!-- Side 1 Item Lines for New Junction -->
+<tr class="mutation_table_row_0">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">=&nbsp;2264951</td><td align="center" class="junction_gene">0 (0.000)</td><td rowspan="2" align="center">104 (0.710)</td>
+<td rowspan="2" align="center">50/190</td>
+<td rowspan="2" align="center">3.7</td>
+<td rowspan="2" align="center">100%</td>
+<td align="center" class="junction_gene">intergenic&nbsp;(+970/+1146)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_02436/SAOUHSC_02441</i></td>
+<td class="junction_gene">hypothetical protein/alkaline shock protein 23</td>
+</tr>
+<!-- Side 2 Item Lines for New Junction -->
+<tr class="mutation_table_row_0">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">2266011&nbsp;=</td>
+<td align="center" class="junction_gene">0 (0.000)</td><td align="center" class="junction_gene">intergenic&nbsp;(+2030/+86)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_02436/SAOUHSC_02441</i></td>
+<td class="junction_gene">hypothetical protein/alkaline shock protein 23</td>
+</tr>
+<!-- Side 1 Item Lines for New Junction -->
+<tr class="mutation_table_row_1">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">=&nbsp;768292</td><td align="center" class="junction_gene">72 (0.470)</td><td rowspan="2" align="center">94 (0.640)</td>
+<td rowspan="2" align="center">51/192</td>
+<td rowspan="2" align="center">3.7</td>
+<td rowspan="2" align="center">47.9%</td>
+<td align="center" class="junction_gene">coding&nbsp;(397/426&nbsp;nt)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_00786</i></td>
+<td class="junction_gene">hypothetical protein</td>
+</tr>
+<!-- Side 2 Item Lines for New Junction -->
+<tr class="mutation_table_row_1">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">1004103&nbsp;=</td>
+<td align="center" class="junction_gene">135 (0.920)</td><td align="center" class="junction_gene">coding&nbsp;(137/156&nbsp;nt)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_A00992</i></td>
+<td class="junction_gene">hypothetical protein</td>
+</tr>
+<!-- Side 1 Item Lines for New Junction -->
+<tr class="mutation_table_row_0">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">1706790&nbsp;=</td><td align="center" class="junction_gene">0 (0.000)</td><td rowspan="2" align="center">107 (0.730)</td>
+<td rowspan="2" align="center">49/190</td>
+<td rowspan="2" align="center">3.9</td>
+<td rowspan="2" align="center">100%</td>
+<td align="center" class="junction_gene">intergenic&nbsp;(+1149/+1176)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_01803/SAOUHSC_01806</i></td>
+<td class="junction_gene">hypothetical protein/pyruvate kinase</td>
+</tr>
+<!-- Side 2 Item Lines for New Junction -->
+<tr class="mutation_table_row_0">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">2425973&nbsp;=</td>
+<td align="center" class="junction_gene">0 (0.000)</td><td align="center" class="junction_gene">intergenic&nbsp;(+913/+158)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_02638/SAOUHSC_02640</i></td>
+<td class="junction_gene">hypothetical protein/hypothetical protein</td>
+</tr>
+<!-- Side 1 Item Lines for New Junction -->
+<tr class="mutation_table_row_1">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">1706790&nbsp;=</td><td align="center" class="junction_gene">0 (0.000)</td><td rowspan="2" align="center">101 (0.690)</td>
+<td rowspan="2" align="center">49/190</td>
+<td rowspan="2" align="center">3.9</td>
+<td rowspan="2" align="center">100%</td>
+<td align="center" class="junction_gene">intergenic&nbsp;(+1149/+1176)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_01803/SAOUHSC_01806</i></td>
+<td class="junction_gene">hypothetical protein/pyruvate kinase</td>
+</tr>
+<!-- Side 2 Item Lines for New Junction -->
+<tr class="mutation_table_row_1">
+<td rowspan="1" class="junction_gene">NC_007795</td>
+<td align="center" class="junction_gene">1815379&nbsp;=</td>
+<td align="center" class="junction_gene">0 (0.000)</td><td align="center" class="junction_gene">intergenic&nbsp;(+1971/+113)</td>
+<td align="center" class="junction_gene"><i>SAOUHSC_01904/SAOUHSC_01907</i></td>
+<td class="junction_gene">hypothetical protein/hypothetical protein</td>
+</tr>
+</table>
+</body></html>

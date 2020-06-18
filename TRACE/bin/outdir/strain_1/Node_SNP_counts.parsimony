@@ -1,0 +1,48 @@
+node: 0a	NumberTargets: 1	NumberSNPs: 541
+0a
+
+node: 1	NumberTargets: 2	NumberSNPs: 8
+0a
+reference
+
+node: 139a	NumberTargets: 1	NumberSNPs: 228
+139a
+
+node: 142a	NumberTargets: 1	NumberSNPs: 86
+142a
+
+node: 144a	NumberTargets: 1	NumberSNPs: 199
+144a
+
+node: 145a	NumberTargets: 1	NumberSNPs: 220
+145a
+
+node: 147a	NumberTargets: 1	NumberSNPs: 283
+147a
+
+node: 2	NumberTargets: 3	NumberSNPs: 2
+0a
+144a
+reference
+
+node: 3	NumberTargets: 7	NumberSNPs: 0
+0a
+139a
+142a
+144a
+145a
+147a
+reference
+
+node: 4	NumberTargets: 3	NumberSNPs: 0
+139a
+142a
+147a
+
+node: 5	NumberTargets: 2	NumberSNPs: 7
+142a
+147a
+
+node: reference	NumberTargets: 1	NumberSNPs: 9070
+reference
+

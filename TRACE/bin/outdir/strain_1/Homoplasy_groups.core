@@ -1,0 +1,39 @@
+Group: Group.12	NumberTargets: 6	NumberSNPs: 7703
+0a
+139a
+142a
+144a
+145a
+147a
+
+Group: Group.13	NumberTargets: 5	NumberSNPs: 4
+139a
+142a
+144a
+145a
+147a
+
+Group: Group.14	NumberTargets: 3	NumberSNPs: 2
+0a
+144a
+reference
+
+Group: Group.16	NumberTargets: 6	NumberSNPs: 1
+0a
+139a
+144a
+145a
+147a
+reference
+
+Group: Group.17	NumberTargets: 1	NumberSNPs: 1
+144a
+
+Group: Group.15	NumberTargets: 6	NumberSNPs: 1
+139a
+142a
+144a
+145a
+147a
+reference
+

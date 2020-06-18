@@ -1,0 +1,3 @@
+Sample_Name	Read_1_Filename	Timepoint
+trial_19_patient_4__1x_1	SRR016139_1.fastq.gz	1x
+trial_19_patient_4__0x_1	SRR016153_1.fastq.gz	0x

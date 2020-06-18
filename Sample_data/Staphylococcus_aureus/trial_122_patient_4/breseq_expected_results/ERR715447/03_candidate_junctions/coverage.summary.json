@@ -1,0 +1,14 @@
+{
+  "NC_007795": {
+    "average": 161.0313,
+    "deletion_coverage_propagation_cutoff": 64.0,
+    "deletion_coverage_seed_cutoff": 0.0,
+    "dispersion": 6.805499,
+    "nbinom_dispersion": 5.99365955759299,
+    "nbinom_mean_parameter": 163.0702,
+    "nbinom_prob_parameter": 0.166842976380459,
+    "nbinom_size_parameter": 32.65545,
+    "nbinom_variance": 977.3872627886,
+    "variance": 1095.898
+  }
+}

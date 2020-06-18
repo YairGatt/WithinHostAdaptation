@@ -1,0 +1,4 @@
+Thu Jun 18 13:27:04 2020
+
+/home/users/yair/Software/breseq-0.32.1-Linux-x86_64/bin//breseq -j 8 --brief-html-output --no-javascript -r ../Sample_data/genomes/GCF_000013425.1_ASM1342v1_genomic.gbk -o ../Sample_data/Staphylococcus_aureus/trial_122_patient_4/breseq/ERR715447 ../Sample_data/Staphylococcus_aureus/trial_122_patient_4/fastqs/ERR715447_1.fastq.gz ../Sample_data/Staphylococcus_aureus/trial_122_patient_4/fastqs/ERR715447_2.fastq.gz
+

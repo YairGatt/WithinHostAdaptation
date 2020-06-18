@@ -1,0 +1,3 @@
+Sample_Name	Read_1_Filename	Read_2_Filename	Timepoint
+trial_121_patient_50__0d_1	SRR3730447_1.fastq.gz	SRR3730447_2.fastq.gz	0d
+trial_121_patient_50__3d_1	SRR3730792_1.fastq.gz	SRR3730792_2.fastq.gz	3d

@@ -1,0 +1,320 @@
+ARGUMENT 'total_length=2821361' __ignored__
+
+ARGUMENT 'in_file=../Sample_data/Staphylococcus_aureus/trial_122_patient_4/breseq/ERR715447/08_mutation_identification/polymorphism_statistics_input.tab' __ignored__
+
+ARGUMENT 'out_file=../Sample_data/Staphylococcus_aureus/trial_122_patient_4/breseq/ERR715447/08_mutation_identification/polymorphism_statistics_output.tab' __ignored__
+
+ARGUMENT 'qual_file=../Sample_data/Staphylococcus_aureus/trial_122_patient_4/breseq/ERR715447/08_mutation_identification/error_counts.tab' __ignored__
+
+
+R version 3.3.3 (2017-03-06) -- "Another Canoe"
+Copyright (C) 2017 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ##
+> ##
+> ## AUTHORS
+> ##
+> ## Jeffrey E. Barrick <jeffrey.e.barrick@gmail.com>
+> ##
+> ## LICENSE AND COPYRIGHT
+> ##
+> ## Copyright (c) 2008-2010 Michigan State University
+> ## Copyright (c) 2011-2017 The University of Texas at Austin
+> ##
+> ## breseq is free software; you can redistribute it and/or modify it under the
+> ## terms the GNU General Public License as published by the Free Software
+> ## Foundation; either version 1, or (at your option) any later version.
+> ##
+> ##
+> 
+> ## Args should be in_file=/path/to/input out_file=/path/to/output total_length=<total_length_of_sequences>  qual_file=
+> 
+> ##error_count_file=/path/to/error_count
+> par(family="sans")
+> 
+> 
+> for (e in commandArgs()) {
++   ta = strsplit(e,"=",fixed=TRUE)
++   if(! is.na(ta[[1]][2])) {
++     temp = ta[[1]][2]
++  #   temp = as.numeric(temp) #Im only inputting numbers so I added this to recognize scientific notation
++     if(substr(ta[[1]][1],nchar(ta[[1]][1]),nchar(ta[[1]][1])) == "I") {
++       temp = as.integer(temp)
++     }
++     if(substr(ta[[1]][1],nchar(ta[[1]][1]),nchar(ta[[1]][1])) == "N") {
++       temp = as.numeric(temp)
++     }
++     assign(ta[[1]][1],temp)
++     cat("assigned ",ta[[1]][1]," the value of |",temp,"|\n")
++   } else {
++     assign(ta[[1]][1],TRUE)
++     cat("assigned ",ta[[1]][1]," the value of TRUE\n")
++   }
++ }
+assigned  /usr/lib/R/bin/exec/R  the value of TRUE
+assigned  --vanilla  the value of TRUE
+assigned  total_length  the value of | 2821361 |
+assigned  in_file  the value of | ../Sample_data/Staphylococcus_aureus/trial_122_patient_4/breseq/ERR715447/08_mutation_identification/polymorphism_statistics_input.tab |
+assigned  out_file  the value of | ../Sample_data/Staphylococcus_aureus/trial_122_patient_4/breseq/ERR715447/08_mutation_identification/polymorphism_statistics_output.tab |
+assigned  qual_file  the value of | ../Sample_data/Staphylococcus_aureus/trial_122_patient_4/breseq/ERR715447/08_mutation_identification/error_counts.tab |
+> 
+> 
+> total_length = as.numeric(total_length);
+> 
+> 
+> X<-read.table(in_file, sep="\t", header=T)
+> #print(X)
+> 
+> ##allocate output data frame
+> Y<-data.frame(
++   ks_quality_p_value = 1:length(X$major_frequency)
++ );
+> 
+> qual_dist<-read.table(qual_file, sep="\t", header=F)
+> print(qual_dist)
+        V1
+1        0
+2        0
+3        0
+4        0
+5    80334
+6   332444
+7  2219413
+8  2275992
+9   972086
+10  837067
+11  696667
+12  411633
+13 1310509
+14  393738
+15  713168
+16  835828
+17  838645
+18 1961843
+19 1517076
+20 1851991
+21 1131065
+22 2190441
+23 2300723
+24 2978152
+25 3088893
+26 3618725
+27 2713331
+28 2924038
+29 4573645
+30 3106942
+31 2776451
+32 2741977
+33 1838906
+34  140370
+35  291239
+36  180748
+37  282803
+38  205925
+39  327973
+40  378128
+41  627595
+> qual_dist<-as.vector(qual_dist$V1);
+> 
+> qual_dist = ceiling(qual_dist / 1000)
+> 
+> print(qual_dist)
+ [1]    0    0    0    0   81  333 2220 2276  973  838  697  412 1311  394  714
+[16]  836  839 1962 1518 1852 1132 2191 2301 2979 3089 3619 2714 2925 4574 3107
+[31] 2777 2742 1839  141  292  181  283  206  328  379  628
+> 
+> 
+> qual_dist_list = c();
+> for (i in 1:length(qual_dist))
++ {
++ 	qual_dist_list = c(qual_dist_list, rep(i, qual_dist[i]));
++ }
+> 
+> qual_dist = qual_dist / sum(qual_dist)
+> qual_cdf = c();
+> 
+> pr_sum = 0;
+> for (i in 1:length(qual_dist))
++ {
++ 	pr_sum = pr_sum + qual_dist[i];
++ 	qual_cdf[i] = pr_sum;		
++ }
+> 
+> 
+> print(qual_cdf)
+ [1] 0.000000000 0.000000000 0.000000000 0.000000000 0.001454663 0.007434944
+ [7] 0.047303486 0.088177720 0.105651635 0.120701112 0.133218397 0.140617424
+[13] 0.164161414 0.171237182 0.184059767 0.199073326 0.214140761 0.249375932
+[19] 0.276637394 0.309897096 0.330226460 0.369574197 0.410897401 0.464396674
+[25] 0.519871415 0.584864321 0.633604511 0.686134009 0.768277571 0.824075571
+[31] 0.873947165 0.923190202 0.956216439 0.958748631 0.963992601 0.967243144
+[37] 0.972325485 0.976024999 0.981915486 0.988721872 1.000000000
+> 
+> qual_pr <- function(qual_cdf = qual_cdf)
++ {
++ 	if (x > length(qual_cdf))
++ 	{
++ 		return(1)
++ 	}
++ 	return (qual_cdf[trunc(x)]);
++ }
+> 
+> #print(Y)
+> 
+> if (length(X$major_quals) > 0)
++ {
++ 	for (i in 1:length(X$major_quals))
++ 	{
++ 		#print (i);
++     major_quals_list = c()
++     major_quals = c()
++     #cat(i, " length: ", length(X$major_quals[i]), "\n")
++     if (length(X$major_quals[i]) > 0) {
++       major_quals_list <- strsplit(as.character(X$major_quals[i]), ",");
++       major_quals <- as.numeric( major_quals_list[[1]] )
++     }
++     
++     minor_quals_list = c()
++     minor_quals = c()
++     
++     #cat(i, " length: ", length(X$minor_quals[i]), "\n")
++     if (length(X$minor_quals[i]) > 0) {
++       minor_quals_list <- strsplit(as.character(X$minor_quals[i]), ",");
++       minor_quals <- as.numeric( minor_quals_list[[1]] )
++     }
++ 
++     ##cat("\n")
++     ##print(minor_quals)
++         
++     ## This code estimates the actual strand and quality score distribution as the total observed.
++ #		max_qual = max(major_quals, minor_quals)
++ #		NQ = tabulate(major_quals, nbins=max_qual)
++ #		RQ = tabulate(minor_quals, nbins=max_qual)
++ #		TQ = NQ+RQ
++ #
++ #		log10_qual_likelihood = log10(dmultinom(NQ, prob=TQ)) + log10(dmultinom(RQ, prob=TQ)) - log10(dmultinom(TQ, prob=TQ))
++ #		Y$log10_qual_likelihood_position_model[i] = -log10_qual_likelihood
++ 		
++ #		RS = c(X$major_top_strand[i], X$major_bot_strand[i])
++ #		NS = c(X$minor_top_strand[i], X$minor_bot_strand[i])
++ #		TS = RS+NS
++ 		
++ #		log10_strand_likelihood =  log10(dmultinom(RS, prob=TS)) + log10(dmultinom(NS, prob=TS)) - log10(dmultinom(TS, prob=TS))
++ #		Y$log10_strand_likelihood_position_model[i] = -log10_strand_likelihood
++ 
++ 		#likelihoods are written as NULL model (one base) versus POLYMORPHISM model (mixed bases)
++ 		#log10_base_likelihood should be negative
++ 		#log10_qual_likelihood should be positive
++ 		#log10_strand_likelihood should be positive
++ 
++ 		#convert to natural logarithm and back to log10
++     #score_combined_log =  -2* ( Y$log10_base_likelihood[i]  + Y$log10_qual_likelihood_position_model[i] + Y$log10_strand_likelihood_position_model[i]) * log(10)
++     #Y$quality_position_model[i] = -pchisq(score_combined_log, 1, lower.tail=T, log=T) / log(10)
++ 		
++ 	## This section estimates the actual strand distribution as the reference observations and the quality score distribution from the
++ 	## count across the entire genome for all bases added together (doesn't take into account that there may be more low G's than A's, for example)	
++ 
++ #		max_qual = length(qual_dist)
++ #		NQ = tabulate(best_quals, nbins=max_qual)
++ #		RQ = tabulate(second_best_quals, nbins=max_qual)
++ #		TQ = NQ+RQ
++ #		EQ = RQ+1
++ 						
++ #		log10_qual_likelihood_genome_mode = log10(dmultinom(NQ, prob=EQ)) + log10(dmultinom(RQ, prob=EQ)) - log10(dmultinom(TQ, prob=TQ))
++ #		Y$log10_qual_likelihood_genome_model[i] = -log10_qual_likelihood_genome_mode
++ 
++ #		RS = c(X$ref_top_strand[i], X$ref_bot_strand[i])
++ #		NS = c(X$new_top_strand[i], X$new_bot_strand[i])
++ #		TS = RS + NS
++ 		
++ #		log10_strand_likelihood_genome_mode =  log10(dmultinom(TS, prob=TS+1)) - log10(dmultinom(RS, prob=RS+1)) + log10(dmultinom(NS, prob=RS+1))
++ #		Y$log10_strand_likelihood_genome_model[i] = -log10_strand_likelihood_genome_mode
++ 
++ #		#convert to natural logarithm and back to 
++ #		score_combined_log_genome_mode =  -2 * ( Y$log10_base_likelihood[i] + Y$log10_strand_likelihood_genome_model[i]) * log(10)
++ 
++ #		Y$quality_genome_model[i] = -pchisq(score_combined_log_genome_mode, 1, lower.tail=T, log=T) / log(10)
++ #		score_combined_log_genome_mode =  -2 * ( Y$log10_base_likelihood[i]) * log(10)
++ 		
++ 
++ 		## KS test for unusual qualities -- Rewrite to use cumulative distribution! = faster and more accurate
++ 		all_quals = c(minor_quals,major_quals);
++ 
++ 		options(warn=-1);
++ 
++ 		if (X$major_frequency[i] < 0.5)
++ 		{
++ 			poly_quals = major_quals;
++ 		}
++ 		else
++ 		{
++ 			poly_quals = minor_quals;
++ 		}
++ 
++ ## This one tests the quality scores predicting a polymorphism agains the overall distribution
++ ## at all positions in the genome	
++ #	ks_test_p_value_unusual <- ks.test(qual_dist_list, poly_quals, alternative = "less")
++ #	ks_test_p_value_unusual <- ks_test_p_value_unusual$p.value
++ #	Y$ks_quality_p_value_unusual_poly[i] <- ks_test_p_value_unusual
++ 
++ 
++ #	ks_test_p_value_unusual <- ks.test(qual_dist_list, second_best_quals, alternative = "less")
++ #	ks_test_p_value_unusual <- ks_test_p_value_unusual$p.value
++ #	Y$ks_quality_p_value_unusual_ref[i] <- ks_test_p_value_unusual
++ 	
++ #	ks_test_p_value_unusual <- ks.test(qual_dist_list, best_quals, alternative = "less")
++ #	ks_test_p_value_unusual <- ks_test_p_value_unusual$p.value
++ #	Y$ks_quality_p_value_unusual_new[i] <- ks_test_p_value_unusual
++ 
++ #	ks_test_p_value_unusual <- ks.test(qual_dist_list, all_quals, alternative = "less")
++ #	ks_test_p_value_unusual <- ks_test_p_value_unusual$p.value
++ #	Y$ks_quality_p_value_unusual_all[i] <- ks_test_p_value_unusual
++ 
++ 	## Oldest code that calculates bias p-values
++ 	
++     options(warn=-1);
++     
++     ks_test_p_value = 1
++     if ((length(minor_quals) > 0) && (length(major_quals) > 0)) {
++       ks_test_result <- ks.test(minor_quals, major_quals, alternative = "less")
++       ks_test_p_value <- ks_test_result$p.value
++     }
++     options(warn=0);
++     
++ 		Y$ks_quality_p_value[i] <- ks_test_p_value
++ 
++ 		contingency_table <- matrix(data=c(X$minor_top_strand[i], X$minor_bot_strand[i], X$major_top_strand[i], X$major_bot_strand[i]), nrow=2, ncol=2)
++ 		#print(contingency_table)
++ 	
++ 		fisher_test_p_value <- fisher.test( contingency_table, alternative="two.sided")
++ 		fisher_test_p_value <- fisher_test_p_value$p.value
++ 		#print(fisher_test_p_value)
++ 	
++ 		Y$fisher_strand_p_value[i] <- fisher_test_p_value
++ 	
++ 		# Fisher's method for combining p-values
++ 		combined_log = - 2* ( log(ks_test_p_value) + log(fisher_test_p_value) )
++ 		Y$bias_p_value[i] = pchisq(combined_log, 2*2, lower.tail=F)
++ 	
++ 		Y$bias_e_value[i] = Y$bias_p_value[i] * total_length
++ 	}
++ }
+> 
+> Y = signif(Y, digits = 6)
+> write.table(Y, out_file, sep="\t", row.names=F, quote=F)
+> 

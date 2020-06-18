@@ -1,0 +1,49 @@
+{
+  "max_qual": 41,
+  "num_bases": 466508900,
+  "num_original_bases": 467071000,
+  "num_original_reads": 4670710,
+  "num_reads": 4665089,
+  "read_length_avg": 100.0,
+  "read_length_max": 100,
+  "read_length_min": 100,
+  "reads": {
+    "ERR715447_1": {
+      "converted_fastq_name": "../Sample_data/Staphylococcus_aureus/trial_122_patient_4/breseq/ERR715447/01_sequence_conversion/ERR715447_1.converted.fastq",
+      "max_quality_score": 41,
+      "min_quality_score": 0,
+      "num_bases": 233535500,
+      "num_filtered_coverage_limit_reads": 0,
+      "num_filtered_same_base_reads": 0,
+      "num_filtered_too_many_N_reads": 0,
+      "num_filtered_too_short_reads": 0,
+      "num_original_bases": 233535500,
+      "num_original_reads": 2335355,
+      "num_reads": 2335355,
+      "quality_format": "SANGER",
+      "quality_format_original": "SANGER",
+      "read_length_avg": 100.0,
+      "read_length_max": 100,
+      "read_length_min": 100
+    },
+    "ERR715447_2": {
+      "converted_fastq_name": "../Sample_data/Staphylococcus_aureus/trial_122_patient_4/breseq/ERR715447/01_sequence_conversion/ERR715447_2.converted.fastq",
+      "max_quality_score": 41,
+      "min_quality_score": 0,
+      "num_bases": 232973400,
+      "num_filtered_coverage_limit_reads": 0,
+      "num_filtered_same_base_reads": 95,
+      "num_filtered_too_many_N_reads": 5526,
+      "num_filtered_too_short_reads": 0,
+      "num_original_bases": 233535500,
+      "num_original_reads": 2335355,
+      "num_reads": 2329734,
+      "quality_format": "SANGER",
+      "quality_format_original": "SANGER",
+      "read_length_avg": 100.0,
+      "read_length_max": 100,
+      "read_length_min": 100
+    }
+  },
+  "total_reference_sequence_length": 2821361
+}

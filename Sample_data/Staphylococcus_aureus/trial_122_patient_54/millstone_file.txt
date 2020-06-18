@@ -1,0 +1,5 @@
+Sample_Name	Read_1_Filename	Read_2_Filename	Timepoint
+trial_122_patient_54__11m_1	ERR737340_1.fastq.gz	ERR737340_2.fastq.gz	11m
+trial_122_patient_54__11m_2	ERR737518_1.fastq.gz	ERR737518_2.fastq.gz	11m
+trial_122_patient_54__1m_1	ERR715275_1.fastq.gz	ERR715275_2.fastq.gz	1m
+trial_122_patient_54__0m_1	ERR211913_1.fastq.gz	ERR211913_2.fastq.gz	0m

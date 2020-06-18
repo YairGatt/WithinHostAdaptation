@@ -1,0 +1,55 @@
+Group: Group.14	NumberTargets: 7	NumberSNPs: 7662
+0a
+139a
+142a
+144a
+145a
+147a
+147b
+
+Group: Group.15	NumberTargets: 6	NumberSNPs: 4
+139a
+142a
+144a
+145a
+147a
+147b
+
+Group: Group.16	NumberTargets: 3	NumberSNPs: 2
+0a
+144a
+reference
+
+Group: Group.21	NumberTargets: 7	NumberSNPs: 1
+139a
+142a
+144a
+145a
+147a
+147b
+reference
+
+Group: Group.17	NumberTargets: 6	NumberSNPs: 1
+0a
+139a
+142a
+144a
+145a
+147a
+
+Group: Group.20	NumberTargets: 2	NumberSNPs: 1
+147b
+reference
+
+Group: Group.18	NumberTargets: 7	NumberSNPs: 1
+0a
+139a
+144a
+145a
+147a
+147b
+reference
+
+Group: Group.19	NumberTargets: 1	NumberSNPs: 1
+144a
+

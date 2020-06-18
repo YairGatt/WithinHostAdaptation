@@ -1,0 +1,3 @@
+Sample_Name	Read_1_Filename	Read_2_Filename	Timepoint
+trial_122_patient_4__1m_1	ERR715447_1.fastq.gz	ERR715447_2.fastq.gz	1m
+trial_122_patient_4__0m_1	ERR212989_1.fastq.gz	ERR212989_2.fastq.gz	0m
