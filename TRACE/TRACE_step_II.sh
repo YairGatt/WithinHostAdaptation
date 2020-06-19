@@ -2,7 +2,7 @@
 
 #This is the second script of TRACE, it creates a tree for each strain and combined them to extract progenitor-progeny pairs
 
-set TRACE_INSTALLATION = /home/users/yair/git/TRACE/bin/
+set pipeline_installation = /home/users/yair/git/WithinHostAdaptation
 set kSNP_INSTALLATION = /home/users/yair/Software/kSNP3.1_Linux_package/
 
 #directory with results of TRACE I
@@ -23,7 +23,7 @@ set breseq_dir = $7
 set core = $8
 #create temp dir
 if ("$temp_dir" == "") then
-  set temp_dir = /home/users/yair/temp/
+  set temp_dir = /tmp/TRACE/
   mkdir -p $temp_dir
 endif
 #Run a tree for each strain
@@ -70,7 +70,7 @@ foreach strain (${strains_dir}/strain_*.txt)
         endif
       end
       #create tree
-      python $TRACE_INSTALLATION/step_II/create_tree_evolutionary_model.py -w ${workdir}/${strain_name}/ -s $strain -c $converted -b $strain_isolates -t 0.3
+      python $pipeline_installation/TRACE/bin/step_II/create_tree_evolutionary_model.py -w ${workdir}/${strain_name}/ -s $strain -c $converted -b $strain_isolates -t 0.3
     endif
   endif
   #create tree based on kSNP matrix
@@ -87,10 +87,10 @@ foreach strain (${strains_dir}/strain_*.txt)
   #if the matrix doesn't exist
   if (! -e  $matrix) then
     #if no kSNP and no phylip are available, create matrix with kSNP
-    python $TRACE_INSTALLATION/step_II/create_tree.py $assemblies_dir $repository $temp_dir $convert_file ${workdir}/${strain_name} $kSNP_INSTALLATION/kSNP3/ $strain
+    python $pipeline_installation/TRACE/bin/step_II/create_tree.py $assemblies_dir $repository $temp_dir $convert_file ${workdir}/${strain_name} $kSNP_INSTALLATION/kSNP3/ $strain
   endif
   #create tree with matrix
-  python $TRACE_INSTALLATION/step_II/create_tree_evolutionary_model.py -w ${workdir}/${strain_name}/ -s $strain -c $converted -m $matrix -t 0.3
+  python $pipeline_installation/TRACE/bin/step_II/create_tree_evolutionary_model.py -w ${workdir}/${strain_name}/ -s $strain -c $converted -m $matrix -t 0.3
 end
 #combine all trees from all clones
 #make sure there are any
@@ -110,4 +110,4 @@ if ($b > 0) then
   cat ${workdir}/*/breseq_comparisons_converted.txt > ${workdir}/breseq_comparisons_converted.txt
 endif
 #format comparisons
-python $TRACE_INSTALLATION/step_II/format_comparisons.py -c $workdir/comparisons_converted.txt
+python $pipeline_installation/TRACE/bin/step_II/format_comparisons.py -c $workdir/comparisons_converted.txt

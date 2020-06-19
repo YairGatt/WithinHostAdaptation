@@ -80,7 +80,7 @@ with open(input_file,"w") as input:
             #get name of isolate
             name = split_line[1].replace("_1.fastq.gz","")
             #get assembly directory in input_directory
-            sample_directory = input_directory + "/assemblies/" + name + "/"
+            sample_directory = input_directory + "/" + name + "/"
             #if ther is no directory something is wrong
             if not os.path.isdir(sample_directory): continue
             #get all files in directory

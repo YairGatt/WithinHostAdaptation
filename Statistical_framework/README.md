@@ -32,3 +32,8 @@ Statistical_framework.sh $patient_list $reference_proteomes $outdir $temp_dir
 -reference proteomes: Either file with full paths of proteomes in .faa.gz format, or a super-directory, with a subdirectory for each organism, with a proteome of format .faa.gz inside the subdirectory.
 -outdir: Output directory for results
 -temp_dir: Directory for temporary files, defult is /tmp
+
+Sample data:
+For the users convenience we have attached Sample data under WithinHostAdaptation/Sample_data/Staphylococcus_aureus
+Run line:
+Statistical_framework.sh WithinHostAdaptation/Sample_data/Staphylococcus_aureus WithinHostAdaptation/Sample_data/genomes/ outdir/
