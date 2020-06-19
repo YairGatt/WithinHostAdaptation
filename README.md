@@ -1,5 +1,4 @@
 # WithinHostAdaptation
- HEAD
 Repository related to main pipeline in Within Host Adaptation paper (Gatt and Margalit, Mol Biol Evol, in review)
 
 This Repository is comprised of several main src directories:
@@ -16,3 +15,5 @@ relationship between the strains.
 and organisms.
 
 Each src directory has a README.md of its own, describing its use!
+
+Note that sample fastq files are too large for github, and therefore need to be downloaded using the ./download_fastqs.sh script
