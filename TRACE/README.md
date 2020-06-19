@@ -19,10 +19,20 @@ Run TRACE for isolates of strains to assess the phylogenetic relationship betwee
 Isolates should be in a single directory, with a subdirectory for each isolate, including either a
 scaffolds.fasta file, or an assembly ending in .fna.
 
+If needed, first create a repository: list of complete genomes from NCBI to be used for dividing isolates to clones.
+
 How to run:
 Run Create_repository.sh for organism:
-
-
+-Edit kSNP_INSTALLATION variable to location of kSNP on your computer.
+-Run:
+--------------------------------------------------------------------------------
+Create_repository.sh $organism $repository $reference $skip $REPOSITORY_DIR
+--------------------------------------------------------------------------------
+-organism: Scientific name of organism for repository.
+-repository: File with list of genome paths
+-reference: reference genome for rooting trees
+-skip: If "Y", skip downloading and rewrite repository file only
+-REPOSITORY_DIR: Directory to download genomes to
 
 Run TRACE_step_I:
 -Edit "pipeline_installation" variable to location of git on your computer.
@@ -54,3 +64,7 @@ TRACE_step_II.sh $strains_dir $assemblies_dir $convert_file $workdir $repository
 -core: put Y to use only core snps (--core in kSNP)
 
 Sample data:
+Sample data is provided in WithinHostAdaptation/TRACE/Sample_data
+Run line:
+TRACE_step_I.sh WithinHostAdaptation/TRACE/Sample_data/assemblies WithinHostAdaptation/TRACE/Sample_data/repository/Staphylococcus_aureus.txt outdir WithinHostAdaptation/TRACE/Sample_data/convert_file/Convert_file.txt
+TRACE_step_II.sh outdir WithinHostAdaptation/TRACE/Sample_data/assemblies WithinHostAdaptation/TRACE/Sample_data/convert_file/Convert_file.txt outdir1 WithinHostAdaptation/TRACE/Sample_data/repository/Staphylococcus_aureus.txt /tmp/TRACE/ WithinHostAdaptation/TRACE/Sample_data/breseq/

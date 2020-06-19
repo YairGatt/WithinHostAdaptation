@@ -2,6 +2,7 @@
 
 -process_input.py
 -Breseq_preTRACE.sh
+-Create_repository.sh
 -TRACE_step_I.sh
 -TRACE_step_II.sh
 -Breseq_postTRACE.sh
