@@ -6,9 +6,11 @@
 
 #initialize
 set patient = $1
-set genome = $2
-set tree_dir = $3
-set snpEff_name = $4
+set genome_dir = $2
+set snpEff_name = $3
+set tree_dir = $4
+#initialize genome
+set genome = $genome_dir/*_genomic.gbk
 #constants
 set BRESEQ_DIR = /home/users/yair/Software/breseq-0.32.1-Linux-x86_64/bin/
 set SNPEFF_PATH = /home/users/yair/Software/snpEff_original/

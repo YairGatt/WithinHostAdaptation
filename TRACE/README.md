@@ -1,4 +1,4 @@
-#Statistical framework
+#TRACE pipeline
 
 -process_input.py
 -Breseq_preTRACE.sh
