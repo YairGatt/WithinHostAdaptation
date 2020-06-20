@@ -51,6 +51,10 @@ def process_command_line(argv):
 		'-t' , '--type', default='SRA',
 		help='SRA/Run or Assembly or Local.')
 
+	parser.add_argument(
+        	'--assembler_installation', default="/home/users/yair/Software/SPAdes-3.10.1-Linux/bin/",
+	        help='Path of assembler installation')
+
         parser.add_argument(
                 '-i' , '--installation', default='/home/users/yair/git/WithinHostAdaptation',
                 help='Pipeline installation.')
@@ -254,7 +258,7 @@ def main(argv=None):
 	#run (fastq_)determine_best_genome
 	if settings.type.lower() == "run" or settings.type.lower() == "sra":
 		for accessions_file in accessions_files_list:
-			arguements = argparse.Namespace(installation=settings.installation, workdir=os.path.dirname(accessions_file) ,organism=settings.organism,sras_file=accessions_file,representative=settings.representative)
+			arguements = argparse.Namespace(installation=settings.installation, QUAST=settings.QUAST, EDIRECT=settings.EDIRECT, mail=settings.mail, sratools=settings.sratools, assembler_installation=settings.assembler_installation, workdir=os.path.dirname(accessions_file) ,organism=settings.organism,sras_file=accessions_file)
 			fastq_determine_best_genome.main(arguements)
 	elif settings.type.lower() == "assembly":
 		for accessions_file in accessions_files_list:

@@ -1,5 +1,5 @@
 # WithinHostAdaptation
-Repository related to main pipeline in Within Host Adaptation paper (Gatt and Margalit, Mol Biol Evol, in review)
+Repository related to main pipeline in Within Host Adaptation paper (Gatt and Margalit, 2020, Mol Biol Evol, in review)
 
 This Repository is comprised of several main src directories:
 
@@ -15,6 +15,6 @@ relationship between the strains.
 -Statistical_framework: This directory includes a single script running the statistical framework described in the paper for all strains
 and organisms.
 
-Each src directory has a README.md of its own, describing its use!
+Each src directory has a detailed README.md of its own, describing its use! Please use those.
 
 Note that sample fastq files are too large for github, and therefore need to be downloaded using the ./download_fastqs.sh script

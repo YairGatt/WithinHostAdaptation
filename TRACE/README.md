@@ -1,6 +1,6 @@
 #TRACE pipeline
 
--process_input.py
+-Downloading_data.sh
 -Breseq_preTRACE.sh
 -Create_repository.sh <-- You are here
 -TRACE_step_I.sh <-- You are here

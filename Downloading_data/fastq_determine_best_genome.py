@@ -71,11 +71,7 @@ def process_command_line(argv):
     parser.add_option(
         '--assembler_installation', default="/home/users/yair/Software/SPAdes-3.10.1-Linux/bin/",
         help='Path of assembler installation')
-    
-    parser.add_option(
-        '--assembler', default="SPAdes",
-        help='Assembler to be used if needed, SPAdes or Velvet can be used with SPAdes being the gold standard in accuracy and Velvet being fast.')
-        
+            
     parser.add_option(    # customized description; put --help last
         '-h', '--help', action='help',
         help='Show this help message and exit.')
@@ -101,7 +97,7 @@ def main(argv=None):
         else: no_deletion = "N"
     except AttributeError: no_deletion = "N"
     #run script
-    call([setting.installation + settings.script, settings.assembler_installation, settings.EDIRECT, settings.QUAST, settings.mail, settings.sratools, settings.organism, settings.sras_file, settings.workdir, no_deletion, settings.assembler_installation])
+    call([settings.installation + settings.script, settings.assembler_installation, settings.EDIRECT, settings.QUAST, settings.mail, settings.sratools, settings.organism, settings.sras_file, settings.workdir, no_deletion])
     return 1
 
 if __name__ == "__main__":
