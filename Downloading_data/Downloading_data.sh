@@ -2,7 +2,7 @@
 #Download data from Supplementary Table 1 in Gatt and Margalit, 2020, for specified organisms.
 #Run process_input.py with type sra, and determined paths.
 #constants
-set pipeline_installation = /home/users/yair/git/WithinHostAdaptation
+set pipeline_installation = /home/users/yair/git/WithinHostAdaptation/
 set EDIRECT_PATH = /home/users/yair/Software/edirect/
 set QUAST_PATH = /home/users/yair/Software/quast-4.5/
 set SRATOOLS_PATH = /home/users/yair/Software/sratoolkit/bin/

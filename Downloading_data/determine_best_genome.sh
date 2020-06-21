@@ -1,6 +1,6 @@
 #! /bin/tcsh
 
-#This script recieves a file with assemblies and the name of the organism, searches NCBI for all completed genomes for that organism, downloads them and their gff files, and uses the QUAST program to determine how good of a match each genome is for the assemblies.
+#This script recieves a file with assemblies and the name of the organism, searches NCBI for all completed genomes for that organism, downloads them in fasta format, and uses the QUAST program to determine how good of a match each genome is for the assemblies.
 #It then uses the cosen metric (default is Genome fraction) to rank the genomes by their mean value for the metric for all assemblies, and chooses the best one.
 
 #set variables
@@ -29,26 +29,26 @@ set no_choice = 0
 #make list of assemblies from file
 foreach line (`cat $assemblies_file`)
   if (! -s $line) then
-    ${EDIRECT_PATH}/esearch -db assembly -query "$line AND latest [filter]" | ${EDIRECT_PATH}/efetch -format docsum | ${EDIRECT_PATH}/xtract -pattern DocumentSummary -block FtpPath -match "@type:Genbank" -element FtpPath | awk 'BEGIN{FS=OFS="/";filesuffix="genomic.fna.gz";filesuffix2="genomic.gff.gz"}{ftpdir=$0;asm=$10;file=asm"_"filesuffix;file2=asm"_"filesuffix2;print ftpdir"/"file;print ftpdir"/"file2}' >> ${workdir}/${organism}_assembly_list.txt
+    ${EDIRECT_PATH}/esearch -db assembly -query "$line AND latest [filter]" | ${EDIRECT_PATH}/efetch -format docsum | ${EDIRECT_PATH}/xtract -pattern DocumentSummary -block FtpPath -match "@type:Genbank" -element FtpPath | awk 'BEGIN{FS=OFS="/";filesuffix="genomic.fna.gz"}{ftpdir=$0;asm=$10;file=asm"_"filesuffix;print ftpdir"/"file}' >> ${workdir}/${organism}_assembly_list.txt
   endif
 end
 #download
 perl $script_path/rsyn_files.pl ${workdir}/${organism}_assembly_list.txt ${workdir}/assemblies > /dev/null
 #iterate through assemblies
-foreach assembly (${workdir}/assemblies/*.fna.gz)
-  set name = `basename $assembly | sed 's/_genomic.fna.gz//'`
-  mkdir -p ${workdir}/assemblies/${name}
-  #mv assembly
-  mv $assembly ${workdir}/assemblies/${name}/
-  #gunzip assembly
-  gunzip ${workdir}/assemblies//${name}/${name}_genomic.fna.gz
-  #mv gff
-  set gff = `echo $assembly | sed 's/.fna.gz/.gff.gz/'`
-  mv $gff ${workdir}/assemblies/${name}/
-end
+set a = `ls $workdir/assemblies | grep -c "\.fna\.gz"`
+if ("$a" != "0") then
+  foreach assembly (${workdir}/assemblies/*.fna.gz)
+    set name = `basename $assembly | sed 's/_genomic.fna.gz//'`
+    mkdir -p ${workdir}/assemblies/${name}
+    #mv assembly
+    mv $assembly ${workdir}/assemblies/${name}/
+    #gunzip assembly
+    gunzip ${workdir}/assemblies//${name}/${name}_genomic.fna.gz
+  end
+endif
 echo "Assemblies file parsed"
-#download relevent genomes and gff files from ncbi
-${EDIRECT_PATH}/esearch -db assembly -query "$organism_white [ORGN] AND latest [filter] AND "+'"complete genome"'+" [filter] AND representative [PROP]" | ${EDIRECT_PATH}/efetch -format docsum | ${EDIRECT_PATH}/xtract -pattern DocumentSummary -block FtpPath -match "@type:Genbank" -element FtpPath | awk 'BEGIN{FS=OFS="/";filesuffix="genomic.fna.gz";filesuffix2="genomic.gff.gz"}{ftpdir=$0;asm=$10;file=asm"_"filesuffix;file2=asm"_"filesuffix2;print ftpdir"/"file;print ftpdir"/"file2}' > ${workdir}/${organism}_ftp_list.txt
+#download relevent genomes files from ncbi
+${EDIRECT_PATH}/esearch -db assembly -query "$organism_white [ORGN] AND latest [filter] AND "+'"complete genome"'+" [filter] AND representative [PROP]" | ${EDIRECT_PATH}/efetch -format docsum | ${EDIRECT_PATH}/xtract -pattern DocumentSummary -block FtpPath -match "@type:Genbank" -element FtpPath | awk 'BEGIN{FS=OFS="/";filesuffix="genomic.fna.gz"}{ftpdir=$0;asm=$10;file=asm"_"filesuffix;print ftpdir"/"file}' > ${workdir}/${organism}_ftp_list.txt
 #check results
 if (`cat ${workdir}/${organism}_ftp_list.txt | wc -l` == 0) then
   echo "Error: no genomes found for ${organism_white} in NCBI Assembly"
@@ -60,7 +60,11 @@ else
   echo "Relevant genomes found on NCBI Assembly"
 endif
 #rsync script from NCBI rsyn_files.pl
-perl rsyn_files.pl ${workdir}/${organism}_ftp_list.txt ${workdir}/genomes > /dev/null
+set a = `ls $workdir/genomes/ | grep -c "\.fna\.gz"`
+while ("$a" == "0")
+  perl rsyn_files.pl ${workdir}/${organism}_ftp_list.txt ${workdir}/genomes > /dev/null
+  set a = `ls $workdir/genomes/ | grep -c "\.fna\.gz"`
+end
 set genome_dir = ${workdir}/genomes/
 #define assemblies
 set assemblies = `echo ${workdir}/assemblies/*/*.fna ${workdir}/assemblies/*/scaffolds.fasta`
@@ -72,7 +76,7 @@ if ("$no_choice" == 0) then
   foreach line (${genome_dir}/*.fna.gz)
     set genome = `echo $line | sed 's/.fna.gz//'`
     set genome_name = `echo $line | rev | cut -d '/' -f 1 | rev`
-    /home/users/yair/Software/quast-4.5/quast.py -o ${workdir}/quasts/${genome_name} -R $line -G ${genome}.gff.gz $assemblies --threads 4 --space-efficient --fast > /dev/null
+    /home/users/yair/Software/quast-4.5/quast.py -o ${workdir}/quasts/${genome_name} -R $line $assemblies --threads 4 --space-efficient --fast > /dev/null
   end
   set quast_dir = ${workdir}/quasts/
   #list stat for all genomes

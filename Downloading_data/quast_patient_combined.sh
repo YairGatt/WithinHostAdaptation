@@ -5,7 +5,6 @@ set patient = $2
 set reference = $3
 set threshold = $4
 set skip = $5
-set gff = `echo $reference | sed 's/.fna.gz/.gff.gz/'`
 
 set a = `ls $patient | grep -c "assemblies"`
 
@@ -27,17 +26,17 @@ if ($skip != "Y") then
       set strain = `basename $assembly`
       set num_split = `echo ${patient}/fastqs/${strain}*`
       if (${#num_split} == 2) then
-        $QUAST_PATH/quast.py -R $reference -G $gff -o ${assembly}/quast $assembly/scaffolds.fasta --threads 4 --scaffolds --reads1 ${patient}/fastqs/${strain}_1.fastq.gz --reads2 ${patient}/fastqs/${strain}_2.fastq.gz > /dev/null
+        $QUAST_PATH/quast.py -R $reference -o ${assembly}/quast $assembly/scaffolds.fasta --threads 4 --scaffolds --reads1 ${patient}/fastqs/${strain}_1.fastq.gz --reads2 ${patient}/fastqs/${strain}_2.fastq.gz > /dev/null
       else if (${#num_split} == 1) then
-        $QUAST_PATH/quast.py -R $reference -G $gff -o ${assembly}/quast $assembly/scaffolds.fasta --threads 4 --scaffolds --reads1 ${patient}/fastqs/${strain}_1.fastq.gz > /dev/null
+        $QUAST_PATH/quast.py -R $reference -o ${assembly}/quast $assembly/scaffolds.fasta --threads 4 --scaffolds --reads1 ${patient}/fastqs/${strain}_1.fastq.gz > /dev/null
       else if (${#num_split} == 0) then
-        $QUAST_PATH/quast.py -R $reference -G $gff -o ${assembly}/quast $assembly/scaffolds.fasta --threads 4 > /dev/null
+        $QUAST_PATH/quast.py -R $reference -o ${assembly}/quast $assembly/scaffolds.fasta --threads 4 > /dev/null
       else
         echo "inapproriate number of fastq files for $assembly"
       endif
     else
       set first_choice = ${assembly}/*.fna
-      $QUAST_PATH/quast.py -R $reference -G $gff -o ${assembly}/quast $first_choice --threads 4 --space-efficient --fast > /dev/null
+      $QUAST_PATH/quast.py -R $reference -o ${assembly}/quast $first_choice --threads 4 --space-efficient --fast > /dev/null
     endif
   end
 endif

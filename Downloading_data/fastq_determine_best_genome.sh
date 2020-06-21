@@ -39,6 +39,7 @@ end
 #set sra path
 set sra_path = $workdir/sra
 #create assemblies and run determine_best_genome
+set assembly_path = ${workdir}/assemblies/
 foreach sra (${sra_path}/*.sra)
   #handle fastqs
   set fastq_path = ${workdir}/fastqs/
@@ -46,7 +47,6 @@ foreach sra (${sra_path}/*.sra)
   #dump fastqs
   ${SRATOOLS_PATH}/fastq-dump $sra --split-files --gzip -O $fastq_path
   #handle assemblies
-  set assembly_path = ${workdir}/assemblies/
   #run SPAdes assembler
   set num_split = `echo ${fastq_path}/${name}*`
   if (${#num_split} == 1) then
@@ -56,7 +56,7 @@ foreach sra (${sra_path}/*.sra)
   endif
 end
 echo "Fastq and Assembly files created"
-  #Run determine_best_genome for the assemblies
+#Run determine_best_genome for the assemblies
 echo ${assembly_path}/*/scaffolds.fasta > ${workdir}/${organism}_assembly_list.txt
 ${script_path}/determine_best_genome.sh $EDIRECT_PATH $QUAST_PATH $MAIL $organism ${workdir}/${organism}_assembly_list.txt $workdir $dont_delete
 set reference_genome = `echo ${workdir}/genome/*.fna.gz`
